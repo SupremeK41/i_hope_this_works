@@ -184,7 +184,7 @@ async def delete_product(id: int):
     await User.filter(id = id).delete()
     return {"status": "ok"}
 
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.post("/api/speech-to-text")
 async def speech_to_text(audio: UploadFile = File(...)):
